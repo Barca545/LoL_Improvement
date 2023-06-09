@@ -1,0 +1,41 @@
+.match-display  {
+/*
+-Don't want a border do want the box to take up the full width of the middle column
+-https://stackoverflow.com/questions/27822463/make-html5-details-tag-to-take-maximum-available-height
+-Remove the "results" section since I am going to incorporate that into the matchlist so it expands when they click on it
+-rename the summary/details thing etc
+*/
+border-style: solid; 
+border-width: 5px;
+position: absolute;
+}
+
+.game-item > .header-stats {
+    font-weight: bold;
+    margin: -0.5em -0.5em 0;
+    padding: 0.5em;
+    text-align: left;
+    cursor: pointer;
+}
+
+.game-item{
+    width: 200px;
+}
+
+.game-item[open] {
+    margin-bottom: 0.5em;
+    padding: 0.5em;
+}
+
+.player-info{
+    display: flex;
+    min-width: 0;
+}
+
+.player-info-component{
+    width: 50px;
+    height: 30px;
+    margin: 2px;
+    border: 1px solid blue; 
+    font-size: small; 
+}

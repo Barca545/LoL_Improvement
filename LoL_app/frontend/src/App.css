@@ -1,0 +1,38 @@
+.App {
+  text-align: center;
+  display: grid;
+  grid-template-areas: 
+  'header header header'
+  'left middle right'
+  'footer footer footer';
+  row-gap: 100px;
+}
+
+.left,
+.middle,
+.right{
+  height: 100px;
+}
+
+.left{
+  grid-area: left;
+}
+
+.right{
+  grid-area: right;
+}
+
+.header{
+  padding-top: 100px;/* possibly remove this later */
+  grid-area: header;
+}
+
+.middle{
+  grid-area: middle;
+}
+
+.footer{
+  grid-row: 4;
+  grid-column: 2;
+}
+
