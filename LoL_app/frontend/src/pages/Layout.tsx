@@ -19,6 +19,9 @@ const NavBar= () => {
         <li>
           <Link to='/progress-tracker'>Progress Tracker</Link>
         </li>
+        <li>
+          <Link to='/login'>Login</Link>
+        </li>
       </ul>
     </nav>
     </>

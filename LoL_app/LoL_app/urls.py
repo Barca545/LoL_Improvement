@@ -18,14 +18,15 @@ from django.contrib import admin
 from django.urls import path
 from django.urls import path, include
 from rest_framework_simplejwt import views as jwt_views
-from core.views import front
+#from core.views import front
 
 #issue with refreshing does not appear to be react-router issue
 #likely caused by the issue here: 
 # https://stackoverflow.com/questions/33221473/404-page-not-found-using-django-react-router
 
 urlpatterns = [
-    path("", front, name="front"),
+    #path("", front, name="front"),
+    path('',include('core.urls')),
     path('', include('users.urls')),
     path('', include('cs_stracker.urls')),
     path('admin/', admin.site.urls), 
