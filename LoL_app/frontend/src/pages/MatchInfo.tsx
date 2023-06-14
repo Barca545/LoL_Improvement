@@ -1,7 +1,8 @@
 ///this page needs to be connected to the router and then connected to the show more details button
 import React from "react";
-import {useAppSelector,useAppDispatch} from '../app/hooks'; 
-import { csResults } from "../services/types/matchinfo-types";
+import {useAppSelector} from '../app/hooks'; 
+///import {useAppSelector,useAppDispatch} from '../app/hooks'; 
+///import { csResults } from "../services/types/matchinfo-types";
 
 
 const MatchInfo = () => {

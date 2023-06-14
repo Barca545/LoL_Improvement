@@ -1,15 +1,22 @@
-import React from "react";
+import React, { useState, useEffect} from "react";
 import {Outlet, Link} from "react-router-dom";
+import {useAppSelector,useAppDispatch} from '../app/hooks'; 
 
 
 const NavBar= () => {
-  return(
-    <>
+  const [isAuth, setIsAuth] = useState(false)  
+  const access = useAppSelector(state => state.auth.token.access)
+  useEffect(() => {
+    if (access !== null) {
+      setIsAuth(true); 
+    }
+   }, [isAuth]);
+  
+   return(
+    ///deleted the empty <> around <nav> re-add if an issue comes up
     <nav>
       <ul>
-        <li>
-          <Link to='/'>Home</Link>
-        </li>
+        {isAuth ? <li> <Link to='/'>Home</Link> </li>: null}
         <li>
           <Link to='/cs-tracker'>CS Problems</Link>
         </li>
@@ -20,11 +27,12 @@ const NavBar= () => {
           <Link to='/progress-tracker'>Progress Tracker</Link>
         </li>
         <li>
-          <Link to='/login'>Login</Link>
+          {isAuth ? 
+            <Link to='/logout'>Logout</Link>:  
+            <Link to='/login'>Login</Link>}
         </li>
       </ul>
     </nav>
-    </>
   )
 }
 const Layout = () => {

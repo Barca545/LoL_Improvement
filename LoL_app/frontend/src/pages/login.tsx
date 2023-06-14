@@ -1,24 +1,33 @@
 import React, {useState} from "react";
-import axios from "axios"
-import {User} from "../services/types/login-types"
+import axios from "axios";
+import {User,AuthState,AccessToken} from "../services/types/login-types";
+import {recievedToken} from '../app/slices/authSlice';
+import {useAppSelector,useAppDispatch} from '../app/hooks';   
 
 export const Login = () =>{
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
+  const dispatch = useAppDispatch()
 
   const handleSubmit = async (e:React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
+    
     const user:User = {
       username: username,
       password: password
     }
-    
+
     const {data} = await axios.post('token/',
     user,{headers:{'Content-Type': 'application/json'}})
+      
+    const token:AccessToken = {
+      access: data.access,
+      refresh: data.access
+    }
     
-    localStorage.clear();
-    localStorage.setItem('access_token', data.access);
-    localStorage.setItem('refresh_token', data.refresh);
+    dispatch(recievedToken(token))
+    dispatch(data.token.refresh)
+  
     axios.defaults.headers.common['Authorization'] = `Bearer ${data['access']}`;
     window.location.href = '/'
   }

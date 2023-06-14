@@ -5,6 +5,7 @@ import {combineReducers } from '@reduxjs/toolkit'
 import matchlistReducer from "./slices/matchlistSlice";
 import matchInfoReducer from "./slices/matchinfoSlice";
 import vodreviewReducer from "./slices/vodreviewSlice";
+import authTokenSlice from './slices/authSlice'
 
 ///try installing a logger for easier debugging: https://github.com/LogRocket/redux-logger
 
@@ -15,6 +16,7 @@ export const store =  configureStore({
     matchlist:matchlistReducer,
     matchinfo:matchInfoReducer,
     vodreview:vodreviewReducer,
+    auth:authTokenSlice,
   },
   middleware: getDefaultMiddleware => getDefaultMiddleware().concat(apiSlice.middleware),
 })
