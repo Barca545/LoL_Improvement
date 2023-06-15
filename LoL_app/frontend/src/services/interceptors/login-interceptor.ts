@@ -8,6 +8,7 @@ let refresh = false
 /*issue seems to be that whatever is being returned by the request 
  is not being sent to the store.
  next step is to include debug stuff here to check where the points of failure occur
+ JC recomended storing stuff in sessionstorage or as cookies
  */
 
 axios.interceptors.response.use(res => res, async error => {
