@@ -1,11 +1,11 @@
 import React, { useState, useEffect} from "react";
 import {Outlet, Link} from "react-router-dom";
-import {useAppSelector,useAppDispatch} from '../app/hooks'; 
-
+import {useAppSelector,useAppDispatch} from '../app/hooks';
+import { getAccessToken } from "../app/slices/authSlice";
 
 const NavBar= () => {
   const [isAuth, setIsAuth] = useState(false)  
-  const access = useAppSelector(state => state.auth.token.access)
+  const access = useAppSelector(getAccessToken)
   useEffect(() => {
     if (access !== null) {
       setIsAuth(true); 

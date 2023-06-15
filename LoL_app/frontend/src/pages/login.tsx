@@ -4,6 +4,15 @@ import {User,AuthState,AccessToken} from "../services/types/login-types";
 import {recievedToken} from '../app/slices/authSlice';
 import {useAppSelector,useAppDispatch} from '../app/hooks';   
 
+/*something in login is not working  
+It seems to not update the store with the information that it has recieved an access token
+Alternatively, there is some thing wrong with the interceptor*/
+
+/*
+-need option to see password
+-need autocomplete on the password
+ */
+
 export const Login = () =>{
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
@@ -21,14 +30,16 @@ export const Login = () =>{
     ///are these the right headers?
     const {data} = await axios.post('token/',
     user,{headers:{'Content-Type': 'application/json'}})
-      
+    
     const token:AccessToken = {
       access: data.access,
       refresh: data.access
     }
+
+    console.log(token)
+    console.log('handleSubmit ran')
     
-    dispatch(recievedToken(token))
-    dispatch(data.token.refresh)
+    dispatch(recievedToken(token))  
   
     axios.defaults.headers.common['Authorization'] = `Bearer ${data['access']}`;
     window.location.href = '/'

@@ -29,8 +29,8 @@ export const {recievedisAuth,recievedToken} = authTokenSlice.actions;
 export default authTokenSlice.reducer;
 
 ///selectors 
-export const getAuthState = (state:RootState) => {
-  return state.auth
+export const getAccessToken = (state:RootState) => {
+  return state.auth.token.access
 }
 
 export const getRefreshToken = (state:RootState) => {
