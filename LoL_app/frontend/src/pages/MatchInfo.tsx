@@ -38,6 +38,4 @@ const MatchInfo = () => {
   )
 }
 
-
-
 export default MatchInfo

@@ -1,7 +1,5 @@
 import React from "react";
 import './App.css';
-import SearchMatch from './components/search';
-import DisplayMatches from './components/match-display/match-display';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./pages/Layout"
 import Home from './pages/Home'
@@ -11,6 +9,7 @@ import VODReviews from "./pages/VOD-Review";
 import ProgressTracker from "./pages/Progress-Tracker";
 import MatchInfo from "./pages/MatchInfo";
 import { Login } from "./pages/Login";
+import { Logout } from "./pages/Logout";
 
 function App() {
   return (
@@ -23,6 +22,7 @@ function App() {
           <Route path="/progress-tracker" element={<ProgressTracker/>}/>
           <Route path='/match-info' element={<MatchInfo/>}/>
           <Route path='/login' element={<Login/>}/>
+          <Route path='/logout' element={<Logout/>}/>
           <Route path="*" element={<NoPage/>}/>
         </Route>
       </Routes>

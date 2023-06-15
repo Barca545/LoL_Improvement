@@ -17,6 +17,8 @@ export const Login = () =>{
       password: password
     }
 
+    /// I want to find a way to move this into the API file.
+    ///are these the right headers?
     const {data} = await axios.post('token/',
     user,{headers:{'Content-Type': 'application/json'}})
       

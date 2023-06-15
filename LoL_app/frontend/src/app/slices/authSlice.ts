@@ -19,9 +19,9 @@ export const authTokenSlice = createSlice({
     recievedisAuth: (state,action:PayloadAction<boolean>) => {
       state.isAuth = action.payload
     },
-      recievedToken: (state,action:PayloadAction<AccessToken>) => {
-        state.token = action.payload
-      }
+    recievedToken: (state,action:PayloadAction<AccessToken>) => {
+      state.token = action.payload
+    }
   }
 })
 
@@ -31,4 +31,8 @@ export default authTokenSlice.reducer;
 ///selectors 
 export const getAuthState = (state:RootState) => {
   return state.auth
+}
+
+export const getRefreshToken = (state:RootState) => {
+  return state.auth.token.refresh
 }
